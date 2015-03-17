@@ -87,3 +87,11 @@ end
 describe command('gpg --list-keys')do
   its(:stdout) { should match /Michal Papis \(RVM signing\) <mpapis@gmail.com>/ }
 end
+
+#vagrant@ruby-ubuntu-1404:~$ rvm -v
+#rvm 1.26.10 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+
+describe command('type rvm | head -1') do
+  its(:stdout) { should match /rvm is a function/ }
+  #its(:stdout) { should match /rvm 1.26.10 \(latest\) by Wayne E. Seguin \<wayneeseguin@gmail.com\>, Michal Papis \<mpapis@gmail.com\> \[https:\/\/rvm.io\/\]/ }
+end

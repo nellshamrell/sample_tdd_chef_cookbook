@@ -47,3 +47,20 @@ package 'libffi-dev'
 execute 'add gpg key for rvm' do
   command 'command curl -sSL https://rvm.io/mpapis.asc | gpg --import -'
 end
+
+execute 'install rvm' do
+  command 'bash < <( curl -sSL https://get.rvm.io | bash )'
+end
+
+=begin
+bash "install RVM" do
+    user "root"
+      code "bash < <( curl -L http://bit.ly/rvm-install-system-wide )"
+        not_if "rvm --version"
+        end
+
+gem_package 'rvm' do
+  action :install
+  version '>= 1.11.3.6'
+end
+=end
